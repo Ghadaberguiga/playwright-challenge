@@ -11,5 +11,9 @@
   "urls": {
     "inventory": "https://www.saucedemo.com/inventory.html",
     "cart": "https://www.saucedemo.com/cart.html"
+  },
+    "locked": {
+    "username": "locked_out_user",
+    "password": "secret_sauce"
   }
 }
