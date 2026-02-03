@@ -1,11 +1,11 @@
 import { test, expect } from '@playwright/test';
 
-import { InventoryPage } from '../../pages/InventoryPage';
-import { CartPage } from '../../pages/CartPage';
-import { CheckoutPage } from '../../pages/CheckoutPage'; // Added this
+import { InventoryPage } from '../../../pages/InventoryPage';
+import { CartPage } from '../../../pages/CartPage';
+import { CheckoutPage } from '../../../pages/CheckoutPage'; // Added this
 
 // Import your data
-import * as testData from '../../data/testData.json';
+import * as testData from '../../../data/testData.json';
 
 test('Full Purchase Flow with POM', async ({ page }) => {
   // Initialize Pages

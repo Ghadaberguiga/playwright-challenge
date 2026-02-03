@@ -1,6 +1,12 @@
 import { defineConfig, devices } from '@playwright/test';
 
 export default defineConfig({
+
+  testDir: './src/tests',
+  fullyParallel: true, // Root of all tests
+  reporter: 'html',
+
+
   projects: [
     // 1. Setup project
     {
