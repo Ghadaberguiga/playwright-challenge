@@ -13,6 +13,6 @@ test('Login', async ({ page }) => {
   await page.locator('[data-test="login-button"]').click();
 
   // Expect a title "to contain" a substring.
-  await expect(page.getByText('Swag Labs')).toBeVisible();
+  await expect(page.getByText('Swag Labs')).toBeVisible();i
 
 });
