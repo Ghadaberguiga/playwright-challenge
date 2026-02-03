@@ -1,0 +1,15 @@
+{
+  "user": {
+    "firstName": "Justin",
+    "lastName": "Bieber",
+    "zipCode": "3003"
+  },
+  "products": [
+    "Sauce Labs Backpack",
+    "Sauce Labs Bike Light"
+  ],
+  "urls": {
+    "inventory": "https://www.saucedemo.com/inventory.html",
+    "cart": "https://www.saucedemo.com/cart.html"
+  }
+}
