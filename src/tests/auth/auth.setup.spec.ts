@@ -11,9 +11,18 @@ setup('authenticate and save state', async ({ page }) => {
   await page.getByPlaceholder('Password').fill('secret_sauce');
   await page.locator('[data-test="login-button"]').click();
 
+   const start = Date.now(); // record start time
+
   // Confirm login success
   await expect(page.getByText('Swag Labs')).toBeVisible();
 
   // Save authenticated state to storageState.json
   await page.context().storageState({ path: 'playwright/.auth/user.json' });
+
+      const end = Date.now(); // record end time
+
+    // Calculate total time in milliseconds
+    const loginTime = end - start;
+
+    console.log('Login took (ms):', loginTime);
 });
