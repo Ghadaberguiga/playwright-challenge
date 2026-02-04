@@ -21,5 +21,48 @@ test('Locked out user', async ({ page }) => {
 
   // Confirm login success
   await expect(page.getByText('Epic sadface: Sorry, this user has been locked out.')).toBeVisible();
+});
+
+test('problem user', async ({ page }) => {
+
+  // Initialize Pages
+    const loginpage = new LoginPage(page);
+
+  // 1. Start at Inventory using URL from JSON
+    await loginpage.goto();
+
+  // 5. Fill Information using User Data from JSON
+    await loginpage.login(
+    testData.problem.username,
+    testData.problem.password
+    );
+
+    // Confirm login succeeded
+    await expect(page.getByText('Swag Labs')).toBeVisible();
+
+    //1️⃣ Get all product images
+    const images = page.locator('.inventory_item_img img');
+
+    //2️⃣ Extract all image src attributes
+    const srcList = await images.evaluateAll(imgs => imgs.map(img => img.getAttribute('src')));
+/*Example result:
+[
+    '/static/media/sl-404.168b1cce.jpg',
+    '/static/media/sl-404.168b1cce.jpg',
+    '/static/media/sl-404.168b1cce.jpg'
+]
+    */
+   //3️⃣ Remove null values (safety step)
+    const validSrcs = srcList.filter(Boolean);
+
+    //4️⃣ Deletes duplicates
+    const uniqueImages = new Set(validSrcs);
+
+    console.log('Unique images:', Array.from(uniqueImages));
+    console.log('Number of unique images:', uniqueImages.size);
+    console.log('Total number of images:', validSrcs.length);
+
+  // 5️⃣If there are fewer images than products → some images are reused
+    expect(uniqueImages.size).toBeLessThan(validSrcs.length);
 
 });
