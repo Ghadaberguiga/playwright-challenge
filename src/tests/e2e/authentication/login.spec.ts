@@ -102,3 +102,20 @@ test('performance glitch user', async ({ page }) => {
     console.log('Login took (ms):', loginTime);
 
 });
+
+for (const password of testData.invalidPasswords) {
+test(`Login fails with invalid password: ${password}`, async ({ page }) => {
+  // Initialize Pages
+    const loginpage = new LoginPage(page);
+
+  // 1. Start at Inventory using URL from JSON
+    await loginpage.goto();
+
+  // 5. Fill Information using User Data from JSON
+    await loginpage.login(
+    testData.problem.username,
+    password
+    );
+
+    await expect(page.getByText('Epic sadface: Username and password do not match')).toBeVisible();
+})};

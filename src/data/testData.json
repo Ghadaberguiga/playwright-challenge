@@ -23,5 +23,17 @@
     "glitch": {
     "username": "performance_glitch_user",
     "password": "secret_sauce"
+  },
+  "invalidPasswords": [
+    "wrong_pass",
+    "123456",
+    "password",
+    "Password",
+    "pass123",
+    "admin",
+    "secret",
+    "secret_sauce1",
+    "qwerty",
+    "letmein"
+  ]
   }
-}

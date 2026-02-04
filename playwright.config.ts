@@ -10,12 +10,12 @@ export default defineConfig({
   projects: [
     // 1. Setup project
     {
-      name: 'setup',
+      name: 'setup',  //tag of test
       testMatch: /auth\.setup\.spec\.ts/,
     },
     // 2. Main testing project
     {
-      name: 'e2e tests',
+      name: 'e2e tests', //tag of tests
       use: {
         ...devices['Desktop Chrome'],
         // Only this project looks for the file
